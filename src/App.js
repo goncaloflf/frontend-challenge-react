@@ -1,4 +1,4 @@
-import './App.css'
+import './App.scss'
 import CenteredBox from './components/CenteredBox'
 import DatePicker from './components/DatePicker'
 

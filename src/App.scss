@@ -1,0 +1,31 @@
+.App {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.centered-box {
+  height: 50vh;
+}
+.date-picker {
+  min-width: 280px;
+
+  .moment {
+    display: flex;
+
+    & > button {
+      padding: 8px;
+    }
+
+    & > div {
+      flex-grow: 1;
+
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      cursor: pointer;
+    }
+  }
+}
