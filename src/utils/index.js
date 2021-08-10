@@ -12,20 +12,24 @@ const isLastDayOfMonth = (date) => {
 }
 
 export const isFullMonth = (startDate, endDate) =>
-  startDate.getDay() === 1 &&
+  startDate.getDate() === 1 &&
   isLastDayOfMonth(endDate) &&
   startDate.getMonth() === endDate.getMonth()
 
 export const getNumberOfDays = (start, end) => {
   const oneDay = 1000 * 60 * 60 * 24
-
   const diffInTime = end.getTime() - start.getTime()
-
   const diffInDays = Math.round(diffInTime / oneDay)
-
   return diffInDays
 }
 
 export const areValidDates = (start, end) =>
   start.getTime() < new Date('2020-01-01').getTime() ||
   end.getTime() > new Date().getTime()
+
+export const getFirstAndLastDayOfMonth = (date) => {
+  const firstDay = new Date(date.getFullYear(), date.getMonth(), 1)
+  const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0)
+
+  return [firstDay, lastDay]
+}

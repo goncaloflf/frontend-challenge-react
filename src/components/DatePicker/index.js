@@ -4,7 +4,13 @@ import '@blueprintjs/datetime/lib/css/blueprint-datetime.css'
 import { useState } from 'react'
 import Popup from './Popup'
 import Moment from './Moment'
-import { areValidDates, getLastWeekDate, getNumberOfDays } from '../../utils'
+import {
+  areValidDates,
+  getFirstAndLastDayOfMonth,
+  getLastWeekDate,
+  getNumberOfDays,
+  isFullMonth,
+} from '../../utils'
 
 const CHEVRON_TYPE = {
   PREV: 'PREV',
@@ -26,15 +32,26 @@ const DatePicker = () => {
   }
 
   const createChevronClickHandler = (type) => () => {
-    const daysInterval =
-      (getNumberOfDays(startDate, endDate) + 1) *
-      (type === CHEVRON_TYPE.NEXT ? 1 : -1)
+    let newStartDate, newEndDate
+    if (!isFullMonth(startDate, endDate)) {
+      const daysInterval =
+        (getNumberOfDays(startDate, endDate) + 1) *
+        (type === CHEVRON_TYPE.NEXT ? 1 : -1)
 
-    const newStartDate = new Date(startDate.getTime())
-    newStartDate.setDate(newStartDate.getDate() + daysInterval)
+      newStartDate = new Date(startDate.getTime())
+      newStartDate.setDate(newStartDate.getDate() + daysInterval)
 
-    const newEndDate = new Date(endDate.getTime())
-    newEndDate.setDate(newEndDate.getDate() + daysInterval)
+      newEndDate = new Date(endDate.getTime())
+      newEndDate.setDate(newEndDate.getDate() + daysInterval)
+    } else {
+      const tmpDate = new Date(startDate.getTime())
+      if (type === CHEVRON_TYPE.PREV) {
+        tmpDate.setDate(0)
+      } else {
+        tmpDate.setMonth(tmpDate.getMonth() + 1)
+      }
+      ;[newStartDate, newEndDate] = getFirstAndLastDayOfMonth(tmpDate)
+    }
 
     if (areValidDates(newStartDate, newEndDate)) {
       alert('You are trying to change to a date out of bounds.')
