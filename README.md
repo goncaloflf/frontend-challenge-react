@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# Datepicker Challenge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Dear reviewer,
+I want to thank you for your time reading this challenge. This challenge was done in 5hrs (you'll find more between commits, but I had dinner and watched a football match in between, hence the extra 2 hours).
 
-## Available Scripts
+This challenge was done in React. Although I am aware that Vue was the preferred framework to use, I am more familiar with React and it would take me far more than 4hrs to complete this.
 
-In the project directory, you can run:
+## Assumptions
 
-### `yarn start`
+When developing this solution, some assumptions were made:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Using the [shortcuts](https://blueprintjs.com/docs/#datetime/daterangepicker) from Blueprintjs is not an acceptable way of implementing the Bonus part - I assumed it had to be coded from scratch.
+- Date picker default value is one week, last day is the current day.
+- I didn't take the UI/UX into much consideration - the main focus was to implement the funcionality asked.
+- Regarding Code Style, all code is ESLint compliant. Checkout my `.eslintrc` config file for more information.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Getting started
 
-### `yarn test`
+This project was developed using create-react-app.
+Yarn was the package manager used, as it was already configured on my machine. The following commands can be executed with NPM as well (I did not test it, but I am confident there will be no problems).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Project setup
 
-### `yarn build`
+```
+yarn | npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Compiles and hot-reloads for development
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+yarn start | npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Compiles and minifies for production
 
-### `yarn eject`
+```
+yarn build | npm build
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Run your unit tests
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+yarn test | npm test
+```
