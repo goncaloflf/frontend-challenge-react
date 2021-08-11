@@ -19,11 +19,13 @@ export const isFullMonth = (startDate, endDate) =>
 export const getNumberOfDays = (start, end) => {
   const oneDay = 1000 * 60 * 60 * 24
   const diffInTime = end.getTime() - start.getTime()
+  if (!diffInTime || diffInTime <= 0)
+    throw new Error('Start date must be before end date')
   const diffInDays = Math.round(diffInTime / oneDay)
   return diffInDays
 }
 
-export const areValidDates = (start, end) =>
+export const areInvalidDates = (start, end) =>
   start.getTime() < new Date('2020-01-01').getTime() ||
   end.getTime() > new Date().getTime()
 

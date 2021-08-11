@@ -5,7 +5,7 @@ import { useState } from 'react'
 import Popup from './Popup'
 import Moment from './Moment'
 import {
-  areValidDates,
+  areInvalidDates,
   getFirstAndLastDayOfMonth,
   getLastWeekDate,
   getNumberOfDays,
@@ -53,7 +53,7 @@ const DatePicker = () => {
       ;[newStartDate, newEndDate] = getFirstAndLastDayOfMonth(tmpDate)
     }
 
-    if (areValidDates(newStartDate, newEndDate)) {
+    if (areInvalidDates(newStartDate, newEndDate)) {
       alert('You are trying to change to a date out of bounds.')
       return
     }
